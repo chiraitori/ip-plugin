@@ -15,7 +15,7 @@ Plugin PaperMC bảo vệ server Minecraft khỏi các kết nối không mong m
 
 ## Cài đặt
 
-1. Tải `IPBlock-1.0.0.jar` từ [Releases](../../releases)
+1. Tải `IPBlock-0.1.jar` từ [Releases](../../releases)
 2. Bỏ vào thư mục `plugins/`
 3. Khởi động server → Database tự động tải!
 
@@ -115,7 +115,7 @@ anti-ddos:
 ./gradlew shadowJar
 ```
 
-Output: `build/libs/IPBlock-1.0.0.jar`
+Output: `build/libs/IPBlock-0.1.jar`
 
 ## License
 

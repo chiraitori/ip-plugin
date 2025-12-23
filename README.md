@@ -15,7 +15,7 @@ A powerful PaperMC plugin to protect your Minecraft server from unwanted connect
 
 ## Installation
 
-1. Download `IPBlock-1.0.0.jar` from [Releases](../../releases)
+1. Download `IPBlock-0.1.jar` from [Releases](../../releases)
 2. Place in your server's `plugins/` folder
 3. Start server → GeoIP database auto-downloads!
 
@@ -115,7 +115,7 @@ anti-ddos:
 ./gradlew shadowJar
 ```
 
-Output: `build/libs/IPBlock-1.0.0.jar`
+Output: `build/libs/IPBlock-0.1.jar`
 
 ## License
 
