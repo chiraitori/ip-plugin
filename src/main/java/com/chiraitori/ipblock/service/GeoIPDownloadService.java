@@ -1,6 +1,7 @@
 package com.chiraitori.ipblock.service;
 
 import com.chiraitori.ipblock.IPBlockPlugin;
+import com.chiraitori.ipblock.util.SchedulerUtil;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -112,13 +113,13 @@ public class GeoIPDownloadService {
     }
 
     /**
-     * Download async on another thread
+     * Download async on another thread (Folia compatible)
      */
     public void downloadAsync(boolean force, Runnable onComplete) {
-        plugin.getServer().getScheduler().runTaskAsynchronously(plugin, () -> {
+        SchedulerUtil.runAsync(plugin, () -> {
             boolean success = downloadIfNeeded(force);
             if (onComplete != null && success) {
-                plugin.getServer().getScheduler().runTask(plugin, onComplete);
+                SchedulerUtil.runSync(plugin, onComplete);
             }
         });
     }

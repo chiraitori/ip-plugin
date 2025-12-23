@@ -2,6 +2,7 @@ name: IPBlock
 version: ${version}
 main: com.chiraitori.ipblock.IPBlockPlugin
 api-version: "1.21"
+folia-supported: true
 author: Chiraitori
 description: Block IPs from non-allowed countries to prevent server scanning
 
