@@ -1,0 +1,20 @@
+name: IPBlock
+version: ${version}
+main: com.chiraitori.ipblock.IPBlockPlugin
+api-version: "1.21"
+author: Chiraitori
+description: Block IPs from non-allowed countries to prevent server scanning
+
+commands:
+  ipblock:
+    description: IPBlock admin commands
+    usage: /<command> <reload|check|whitelist>
+    permission: ipblock.admin
+
+permissions:
+  ipblock.admin:
+    description: Access to IPBlock admin commands
+    default: op
+  ipblock.bypass:
+    description: Bypass IP country check
+    default: false

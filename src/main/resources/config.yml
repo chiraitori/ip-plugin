@@ -1,0 +1,82 @@
+# IPBlock Configuration
+# Plugin chặn IP từ các quốc gia không được phép để tránh bị scan server
+
+# Chế độ hoạt động:
+# - whitelist: CHỈ cho phép các quốc gia trong danh sách (mặc định)
+# - blacklist: Chặn các quốc gia trong danh sách
+mode: whitelist
+
+# Danh sách quốc gia (ISO 3166-1 alpha-2)
+# Với mode whitelist: chỉ các quốc gia này được phép
+# Với mode blacklist: các quốc gia này bị chặn
+countries:
+  - VN  # Vietnam
+
+# IP được whitelist (luôn cho phép, bỏ qua kiểm tra country)
+whitelisted-ips:
+  - "127.0.0.1"
+
+# Rate limit - chặn IP kết nối quá nhiều lần
+rate-limit:
+  enabled: true
+  max-attempts: 5          # Số lần kết nối tối đa
+  time-window-seconds: 60  # Trong khoảng thời gian này
+  block-duration-minutes: 30  # Thời gian block
+
+# Tin nhắn kick (hỗ trợ color code &)
+kick-message: "&cKết nối bị từ chối."
+
+# Cho phép localhost và private IP
+allow-local: true
+
+# Ghi log các lần bị chặn
+log-blocked: true
+
+# Cho phép IP không xác định được quốc gia (VPN, proxy...)
+allow-unknown-country: false
+
+# Tự động tải GeoLite2 database khi khởi động (nếu chưa có)
+auto-download: true
+
+# Anti-DDoS Protection
+anti-ddos:
+  enabled: true
+  # Giới hạn kết nối toàn server mỗi giây
+  max-connections-per-second: 50
+  # Giới hạn kết nối mỗi IP trong khoảng thời gian
+  max-connections-per-ip: 3
+  ip-time-window-seconds: 10
+  # Thời gian block tạm thời (phút)
+  temp-block-minutes: 60
+  # Số lần bị block tạm → block vĩnh viễn
+  perm-block-threshold: 5
+  # Ngưỡng phát hiện DDoS (connections/sec)
+  ddos-threshold: 100
+
+# Logging - ghi log ra file riêng
+logging:
+  # Ghi log ra file blocked.log
+  file-enabled: true
+  # Ghi log IP được phép (chỉ dùng debug)
+  log-allowed: false
+
+# Webhook Notifications - gửi thông báo khi bị tấn công
+webhook:
+  # Discord Webhook
+  discord:
+    enabled: false
+    # Lấy webhook URL từ: Server Settings → Integrations → Webhooks → New Webhook
+    url: "https://discord.com/api/webhooks/YOUR_WEBHOOK_ID/YOUR_WEBHOOK_TOKEN"
+  
+  # Telegram Bot
+  telegram:
+    enabled: false
+    # Lấy bot token từ @BotFather
+    bot-token: "YOUR_BOT_TOKEN"
+    # Lấy chat ID từ @userinfobot hoặc @getmyid_bot
+    chat-id: "YOUR_CHAT_ID"
+  
+  # Loại thông báo
+  notify-on-block: false      # Thông báo mỗi khi chặn IP (có thể spam)
+  notify-on-ddos: true        # Thông báo khi phát hiện DDoS
+  notify-on-perm-block: true  # Thông báo khi IP bị cấm vĩnh viễn

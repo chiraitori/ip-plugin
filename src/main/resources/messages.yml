@@ -1,0 +1,26 @@
+# Ngôn ngữ - Messages (Kick messages bằng tiếng Anh)
+messages:
+  # Tin nhắn kick cho player
+  kick-country: "&cConnection refused. Your country is not allowed."
+  kick-ratelimit: "&cConnection refused. You are connecting too fast."
+  kick-ddos: "&cConnection refused. Your IP has been temporarily blocked."
+  kick-blacklist: "&cConnection refused. Your IP has been permanently banned."
+  kick-unknown: "&cConnection refused."
+  
+  # Tin nhắn cho admin (tiếng Việt)
+  reload-success: "&aĐã reload config thành công!"
+  whitelist-added: "&aĐã thêm {ip} vào whitelist!"
+  whitelist-removed: "&aĐã xóa {ip} khỏi whitelist!"
+  whitelist-exists: "&eIP đã có trong whitelist!"
+  whitelist-not-found: "&eIP không có trong whitelist!"
+  blacklist-added: "&aĐã thêm {ip} vào blacklist vĩnh viễn!"
+  blacklist-removed: "&aĐã xóa {ip} khỏi blacklist!"
+  blacklist-not-found: "&eIP không có trong blacklist!"
+  update-start: "&eĐang tải GeoLite2 database từ GitHub..."
+  update-success: "&aĐã cập nhật GeoLite2 database thành công!"
+  no-permission: "&cBạn không có quyền sử dụng lệnh này!"
+  invalid-ip: "&cIP không hợp lệ: {ip}"
+  usage-check: "&cSử dụng: /ipblock check <ip>"
+  usage-whitelist: "&cSử dụng: /ipblock whitelist <add|remove> <ip>"
+  usage-blacklist: "&cSử dụng: /ipblock blacklist <add|remove> <ip>"
+

@@ -1,0 +1,40 @@
+# Build
+build/
+out/
+target/
+bin/
+
+# Gradle
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.code-workspace
+.settings/
+.project
+.classpath
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Plugin data (for testing)
+plugins/
+run/
+server/
+
+# Logs
+logs/
+*.log
+
+# GeoIP database (auto-downloaded)
+*.mmdb
+
+# Secrets
+*.env
+secrets.yml
