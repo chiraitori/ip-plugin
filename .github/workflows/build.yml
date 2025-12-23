@@ -41,9 +41,9 @@ jobs:
       with:
         files: build/libs/*.jar
     
-    # Upload to Modrinth (only if secrets are configured)
+    # Upload to Modrinth (skips if secrets not configured)
     - name: Upload to Modrinth
-      if: github.event_name == 'release' && secrets.MODRINTH_TOKEN != ''
+      if: github.event_name == 'release'
       uses: Kir-Antipov/mc-publish@v3.3
       with:
         modrinth-id: ${{ secrets.MODRINTH_PROJECT_ID }}
