@@ -3,10 +3,9 @@ name: Build & Release
 on:
   push:
     branches: [ main, master ]
+    tags: [ 'v*' ]
   pull_request:
     branches: [ main, master ]
-  release:
-    types: [ created ]
 
 jobs:
   build:
@@ -38,15 +37,16 @@ jobs:
         path: build/libs/*.jar
     
     # Upload to GitHub Release
-    - name: Upload to GitHub Release
-      if: github.event_name == 'release'
+    - name: Create Release & Upload
+      if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v1
       with:
         files: build/libs/*.jar
+        generate_release_notes: true
     
     # Upload to Modrinth (skips if secrets not configured)
     - name: Upload to Modrinth
-      if: github.event_name == 'release'
+      if: startsWith(github.ref, 'refs/tags/')
       uses: Kir-Antipov/mc-publish@v3.3
       with:
         modrinth-id: ${{ secrets.MODRINTH_PROJECT_ID }}
